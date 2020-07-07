@@ -23,6 +23,7 @@
       <div class="form-group">
         <label for="exampleFormControlSelect1">Select the Conference</label>
         <select class="form-control" id="exampleFormControlSelect1" name="exampleFormControlSelect1" onchange="populateValues()">
+          <option value="" selected disabled>Please select</option>
           {% for key,value in ConfNames.items %}:
             <option value="{{value}}">LAK{{key}}</option>
           {% endfor %}
