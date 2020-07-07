@@ -18,7 +18,7 @@
   <div class="card-body">
     <h5 class="card-title">List of LAK Conferences</h5>
     <p class="card-text">This form gets the details related to a particular conference</p>
-    <form method="POST" action="http://localhost:8000/home/page1" id="sysform" name="sysform">
+    <form method="POST" action="http://localhost:8000/confDetails/" id="sysform" name="sysform">
       {% csrf_token %}
       <div class="form-group">
         <label for="exampleFormControlSelect1">Select the Conference</label>
@@ -35,29 +35,7 @@
       </div>
 
       <button type="submit" class="btn btn-primary mb-2" form="sysform">Get Insights!</button>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Confdata</h1>
-          {% for key,value in ConfDetails.items %}
-            {% for val in value %}
-              {% with counter=forloop.counter %}
-                {% if counter == 5 %}
-                  <p class="lead">Title : {{ val }} </p>
-                {% endif %}
-                {% if counter == 3 %}
-                  <p class="lead">Date : {{ val }} </p>
-                {% endif %}
-                {% if counter == 7 %}
-                  <p class="lead">Authors : {{ val }} </p>
-                {% endif %}
-                {% if counter == 8 %}
-                  <p class="lead">Abstract : {{ val }} </p>
-                {% endif %}
-              {% endwith %}
-            {% endfor %}
-          {% endfor %}
-        </div>
-      </div>
+      
     </form>
   </div>
   <br>

@@ -7,7 +7,7 @@ urlpatterns=[
     path('charts/',views.charts,name='charts'),
     #path('plots/',views.plotreq,name='plotreq')
     path('graphs/',views.graphView,name='graphview'),
-    path('home/page<int:num>',views.getListValues,name='listvals'),
+    path('confDetails/',views.getListValues,name='listvals'),
     path('bubbles/',views.bubbleView,name='bubbles'),
     path('topic_bubble/',views.getCharts,name='chart')
 ]

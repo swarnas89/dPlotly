@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+      <div class="card">
+        <h5 class="card-header">Conference Details</h5>
+        <div class="card-body">
+          {% for key,value in ConfDetails.items %}
+            {% for val in value %}
+              {% with counter=forloop.counter %}
+                {% if counter == 5 %}
+                  <p class="card-text">Title : {{ val }} </p>
+                {% endif %}
+                {% if counter == 3 %}
+                  <p class="card-text">Date : {{ val }} </p>
+                {% endif %}
+                {% if counter == 7 %}
+                  <p class="card-text">Authors : {{ val }} </p>
+                {% endif %}
+                {% if counter == 8 %}
+                  <p class="card-text">Abstract : {{ val }} </p>
+                {% endif %}
+              {% endwith %}
+            {% endfor %}
+          {% endfor %}
+          <a href="http://localhost:8000/home/" class="btn btn-primary"> << Back</a>
+        </div>
+      </div>
+</body>
+{% endblock %}

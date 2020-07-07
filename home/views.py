@@ -17,7 +17,7 @@ def graphView(requests):
     return render(requests,'home/graphs.html')
 def bubbleView(requests):
     return render(requests,'home/bubbleplot.html')
-def getListValues(request,num):
+def getListValues(request):
     #dropdown_value = "Teaching the unteachable: on the compatibility of learning analytics and humane education"
     year_dropdown=request.POST.get('exampleFormControlSelect1')
     t1=request.POST.get('exampleFormControlSelect2')
@@ -26,9 +26,9 @@ def getListValues(request,num):
     #print("The value is" ,t2)
     val=getConfData(t2)
     #print("data is:",val)
-    return render(request,'home/welcome.html',{"ConfNames":getConfTitles(),"ConfDetails":val})
+    return render(request,'home/ConfDetails.html',{"ConfDetails":val})
 def getCharts(request):
-    return render(request,'home/bubbles_tpc.html',{'plot_div':getBcharts(),'plot_div1':barChart(),'concats':getKeywordsFromConcatenatedAbstractAndTitle(),'wiki':getWikiFilteredWords(),'simscore':getSimilarityScores()})
+    return render(request,'home/bubbles_tpc.html',{'plot_div':getBcharts(),'plot_div1':barChart(),'concats':getKeywordsFromConcatenatedAbstractAndTitle(),'wiki':getWikiFilteredWords()})
 
 
 
