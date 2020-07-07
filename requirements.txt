@@ -1,0 +1,11 @@
+networkx
+scipy
+wikipedia-api
+spacy
+nltk
+scikit-learn
+matplotlib
+jellyfish
+segtok
+pattern
+gensim

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+	<!-- Load plotly.js into the DOM -->
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src="{% static 'js/plots.js' %}"></script>
+</head>
+<body>
+    <div id='bar'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <br>
+    <div id='scatter'><!-- Plotly chart will be drawn inside this DIV --></div>
+</body>
+{%endblock%}

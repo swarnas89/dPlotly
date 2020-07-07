@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load plotly_dash %}
+<head>
+	<!-- Load plotly.js into the DOM -->
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <!-- Load d3-cloud -->  
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+    <script src="{% static 'js/wordcloud.js' %}">
+    </script> 
+    <script>
+      
+    </script> 
+      
+</head>
+<body>
+  
+  <div>
+  {% autoescape off %}
+  {{ plot_div }}
+  {% endautoescape %}
+</div>
+<div>
+  {% autoescape off %}
+  {{ plot_div1 }}
+  {% endautoescape %}
+</div>
+
+<div class="{% plotly_class name='app1' %} card" style="height: 100%; width: 100%">
+  {% plotly_app name='app1' ratio=0.6 %}
+</div>
+<div>
+  <h3>keywords</h3>
+  <p>{{concats}}</p>
+  <h3>Wiki</h3>
+  <p>{{wiki}}</p>
+  <h3>Keyword Similarities</h3>
+  <p>{{simscore}}</p>
+</div>
+
+</body>
+{% endblock %}

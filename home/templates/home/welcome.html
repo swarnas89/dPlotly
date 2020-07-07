@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load plotly_dash %}
+   
+
+
+<head>
+
+<script src="{% static 'js/loadConftitles.js' %}"></script>
+<script src="{% static 'js/plots.js' %}"></script>
+</head>
+
+<body >
+  
+<div class="card" style="width: 98rem;">
+  <h5 class="card-header">Conference Data</h5>   
+  <div class="card-body">
+    <h5 class="card-title">List of LAK Conferences</h5>
+    <p class="card-text">This form gets the details related to a particular conference</p>
+    <form method="POST" action="http://localhost:8000/home/page1" id="sysform" name="sysform">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select the Conference</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="exampleFormControlSelect1" onchange="populateValues()">
+          {% for key,value in ConfNames.items %}:
+            <option value="{{value}}">LAK{{key}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2" ></label>
+        <select class="form-control" name="exampleFormControlSelect2" id="exampleFormControlSelect2" style="overflow-y: scroll;overflow-x: scroll;">
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary mb-2" form="sysform">Get Insights!</button>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Confdata</h1>
+          {% for key,value in ConfDetails.items %}
+            {% for val in value %}
+              {% with counter=forloop.counter %}
+                {% if counter == 5 %}
+                  <p class="lead">Title : {{ val }} </p>
+                {% endif %}
+                {% if counter == 3 %}
+                  <p class="lead">Date : {{ val }} </p>
+                {% endif %}
+                {% if counter == 7 %}
+                  <p class="lead">Authors : {{ val }} </p>
+                {% endif %}
+                {% if counter == 8 %}
+                  <p class="lead">Abstract : {{ val }} </p>
+                {% endif %}
+              {% endwith %}
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+    </form>
+  </div>
+  <br>
+  <br>
+</div>
+
+
+</body>
+
+
+
+
+
+{%endblock%}
